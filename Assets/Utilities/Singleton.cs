@@ -47,7 +47,7 @@ namespace SI.Utilities
     ///     Singleton class
     /// </summary>
     /// <typeparam name="T">Type of the singleton</typeparam>
-    public abstract class PersistantSingleton<T> : Singleton<T> where T : Singleton<T>
+    public abstract class PersistentSingleton<T> : Singleton<T> where T : Singleton<T>
     {
         /// <summary>
         ///     Awake method to associate singleton with instance and prevent destruction on load
@@ -56,7 +56,7 @@ namespace SI.Utilities
         {
             base.Awake();
 
-            if (!instanceExists)
+            if (instanceExists)
             {
                 DontDestroyOnLoad(this);
             }
